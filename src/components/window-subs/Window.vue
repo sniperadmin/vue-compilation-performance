@@ -83,6 +83,8 @@ export default {
 .content {
   overflow: auto;
   flex: 1;
+  min-height: 28rem;
+  max-height: 28rem;
 }
 select {
   background: transparent;

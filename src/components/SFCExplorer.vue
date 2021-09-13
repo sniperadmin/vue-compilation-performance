@@ -25,7 +25,6 @@ export default {
   },
   computed: {
     output () {
-      console.info('code is => ', this.code);
       return parseComponent(this.code)
     }
   }

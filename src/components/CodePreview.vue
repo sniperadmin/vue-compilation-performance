@@ -23,7 +23,6 @@
     },
 
     render(h, ctx) {
-      console.log(ctx.children);
       const code = deIndent(ctx.props.code || ctx.children[0].text.trim())
       const language = ctx.props.language
       const prismLanguage = Prism.languages[aliases[language] || language]

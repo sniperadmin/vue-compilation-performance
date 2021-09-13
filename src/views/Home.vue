@@ -13,30 +13,18 @@
         </p>
       </v-col>
     </v-row>
-    <!-- <CodePreview
-      language="js"
-    >
-      module.exports = {
-        chainWebpack: config => {
-          config.module.rule('vue').use('vue-loader')
-            .tap(options => {
-              options.modules = {
-                ...options.modules,
-                postTransformNode
-              }
-              return options
-            })
-          }
-        }
-    </CodePreview> -->
     <v-row>
-      <v-col>
+      <v-col cols="3">
         <FancyBrowserWindow :files="files" active="GreetingExample" @pick="logit" />
       </v-col>
-      <v-col>
+
+      <v-col cols="3">
         <SFCExplorer :code="file ? file.content.default : ''" />
       </v-col>
-  
+      
+      <v-col cols="3">
+        <RFExplorer v-if="file" :code="file ? file.content.default : ''" :strip-with="true" />
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -46,6 +34,7 @@
 // import CodePreview from '@/components/CodePreview.vue'
 import FancyBrowserWindow from '@/components/window-subs/FancyBrowserWindow.vue'
 import SFCExplorer from '../components/SFCExplorer.vue'
+import RFExplorer from '../components/RFExplorer.vue'
 
 function loadFiles() {
   const context = require.context('!!raw-loader!../files/', false, /\.(vue|js)$/)
@@ -63,7 +52,8 @@ export default {
   components: {
     // CodePreview,
     FancyBrowserWindow,
-    SFCExplorer
+    SFCExplorer,
+    RFExplorer
   },
   data() {
     return {
@@ -73,7 +63,6 @@ export default {
   },
   methods: {
     logit(e) {
-      console.info(e);
       this.file = e
     }
   }
