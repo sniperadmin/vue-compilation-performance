@@ -3,7 +3,7 @@ import { parseComponent } from "vue-template-compiler";
 let id = 0
 
 export default {
-  // props: ['component'],
+  props: ['component'],
 
   computed: {
     build() {
@@ -19,12 +19,12 @@ export default {
   },
 
   watch: {
-    // build: {
-    //   immediate: true,
-    //   handler(component) {
-    //     console.log('component from watcher => ', component);
-    //     this.$emit('update:component', component)
-    //   }
-    // }
+    build: {
+      immediate: true,
+      handler(component) {
+        console.log('component from watcher => ', component);
+        this.$emit('update:component', component)
+      }
+    }
   }
 }

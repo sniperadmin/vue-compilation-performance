@@ -22,11 +22,12 @@ import compiler from './componentCompiler.js';
 import { compileTemplate } from './compilers'
 import Window from "./window-subs/Window.vue";
 import CodePreview from "./CodePreview.vue";
+
   export default {
     name: 'RFExplorer',
     components: {
       Window,
-      CodePreview
+      CodePreview,
     },
     extends: compiler,
 

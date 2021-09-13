@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col>
         <img alt="Vue logo" src="../assets/logo.png">
@@ -23,7 +23,19 @@
       </v-col>
       
       <v-col cols="3">
-        <RFExplorer v-if="file" :code="file ? file.content.default : ''" :strip-with="true" />
+        <!-- NOTE: Read more about component.sync -->
+        <component
+          v-if="file"
+          :is="explorer"
+          :code="file ?file.content.default : ''"
+          :strip-with="true"
+          :component.sync="component"
+        />
+      </v-col>
+
+      <v-col cols="2">
+        Preview component
+        <ComponentPreview :component="component" />
       </v-col>
     </v-row>
   </v-container>
@@ -35,6 +47,7 @@
 import FancyBrowserWindow from '@/components/window-subs/FancyBrowserWindow.vue'
 import SFCExplorer from '../components/SFCExplorer.vue'
 import RFExplorer from '../components/RFExplorer.vue'
+import ComponentPreview from '../components/ComponentPreview.vue'
 
 function loadFiles() {
   const context = require.context('!!raw-loader!../files/', false, /\.(vue|js)$/)
@@ -53,12 +66,15 @@ export default {
     // CodePreview,
     FancyBrowserWindow,
     SFCExplorer,
-    RFExplorer
+    RFExplorer,
+    ComponentPreview
   },
   data() {
     return {
       files,
-      file: null
+      file: null,
+      explorer: 'RFExplorer',
+      component: null
     }
   },
   methods: {
