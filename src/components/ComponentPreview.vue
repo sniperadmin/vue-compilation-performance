@@ -35,6 +35,7 @@ export default {
 <style scoped>
 .wrapper {
   border: 1px dashed gray;
+  background-color: gray;
   padding: 1.5rem 2rem;
   display: flex;
   align-items: center;

@@ -27,13 +27,13 @@
     </v-btn-toggle>
 
 
-    <v-btn v-if="value" @click="$emit('input', false)" color="indigo">
+    <v-btn v-if="value" @click="$emit('input', false)" color="error">
       <v-icon left>
         mdi-stop
       </v-icon>
       Stop
     </v-btn>
-    <v-btn v-else @click="$emit('input', true)" color="error">
+    <v-btn v-else @click="$emit('input', true)" color="indigo">
       <v-icon left>
         mdi-play
       </v-icon>
