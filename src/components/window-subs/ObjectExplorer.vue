@@ -6,7 +6,7 @@
 
     <div class="contents" v-if="expanded">
       <div v-for="(v, k) in value" :key="k" class="entry" :data-id="id(value)">
-        <button v-if="v !== null && typeof v === 'object'" class="expand" @click="toggle(k)">
+        <button v-if="v !== null && typeof v === 'object'" class="expand black--text" @click="toggle(k)">
           {{ isExpanded(k) ? '-' : '+' }}
         </button>
         <div class="key">{{ k }}</div>
