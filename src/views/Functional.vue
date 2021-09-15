@@ -3,23 +3,43 @@
     <h2 slot="title">Functional Component</h2>
 
     <template #on>
-      <div class="grid">
-        <FunctionalOn
-          v-for="n of list"
-          :key="uid++"
-          :value="n"
-        />
-      </div>
+      <v-container>
+        <v-row>
+          <v-col cols="6">
+            <div class="grid">
+              <FunctionalOn
+                v-for="n of list"
+                :key="uid++"
+                :value="n"
+              />
+            </div>
+          </v-col>
+  
+          <v-col class="my-auto">
+            <FancyBrowserWindow :files="[functionalFiles[1]]" />
+          </v-col>
+        </v-row>
+      </v-container>
     </template>
 
     <template #off>
-      <div class="grid">
-        <FunctionalOff
-          v-for="n of list"
-          :key="uid++"
-          :value="n"
-        />
-      </div>
+      <v-container>
+        <v-row>
+          <v-col cols="6">
+            <div class="grid">
+              <FunctionalOff
+                v-for="n of list"
+                :key="uid++"
+                :value="n"
+              />
+            </div>
+          </v-col>
+  
+          <v-col class="my-auto">
+            <FancyBrowserWindow :files="[functionalFiles[0]]" />
+          </v-col>
+        </v-row>
+      </v-container>
     </template>
   </BenchmarkLayoutVue>
 </template>
@@ -28,17 +48,34 @@
 import BenchmarkLayoutVue from '@/layouts/BenchmarkLayout.vue';
 import FunctionalOn from '@/components/functional/FunctionalOn.vue'
 import FunctionalOff from '@/components/functional/FunctionalOff.vue'
+import FancyBrowserWindow from '@/components/window-subs/FancyBrowserWindow.vue'
+
+
+function loadFunctionalComponentFiles() {
+  const context = require.context('!!raw-loader!../components/functional', false, /\.(vue|js)$/)
+
+  return context.keys().map(name => ({
+    name: name.replace('./', ''),
+    lang: 'vue',
+    content: context(name)
+  }))
+}
+
+const functionalFiles = loadFunctionalComponentFiles()
+
 export default {
   name: 'Functional',
   components: {
     BenchmarkLayoutVue,
     FunctionalOn,
-    FunctionalOff
+    FunctionalOff,
+    FancyBrowserWindow,
   },
   data() {
     return {
       play: false,
       list: [],
+      functionalFiles
     }
   },
 
@@ -49,7 +86,7 @@ export default {
   },
 
   created() {
-    this.count = 800
+    this.count = 500
     this.uid = 0
     this.generate()
   },

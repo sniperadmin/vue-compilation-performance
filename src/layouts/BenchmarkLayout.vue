@@ -67,6 +67,7 @@ import Stats from 'stats.js'
 
       stats.dom.style.left = ''
       stats.dom.style.right = '0px'
+      stats.dom.style.top = '20%'
 
       function animate() {
         stats.begin();

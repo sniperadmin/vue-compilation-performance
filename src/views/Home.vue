@@ -21,7 +21,7 @@
       <v-col cols="3">
         <SFCExplorer :code="file ? file.content.default : ''" />
       </v-col>
-      
+
       <v-col cols="3">
         <!-- NOTE: Read more about component.sync -->
         <component

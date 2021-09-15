@@ -1,6 +1,20 @@
 <template>
   <v-app>
     <v-app-bar app dark>
+      <v-toolbar-title>
+        <v-avatar
+          size="56"
+        >
+          <img
+            src="@/assets/nash.jpg"
+            alt="Nash Img"
+          >
+        </v-avatar>
+        Nasr Galal
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
       <v-btn
         v-for="btn in btns"
         :key="btn.id"
