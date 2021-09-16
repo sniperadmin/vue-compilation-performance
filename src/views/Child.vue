@@ -1,6 +1,6 @@
 <template>
   <BenchmarkLayoutVue v-model="play">
-    <h2 slot="title">Functional Component</h2>
+    <h2 slot="title">Child Component</h2>
 
     <template #on>
       <v-container>
