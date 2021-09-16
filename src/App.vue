@@ -42,6 +42,7 @@ export default {
       btns: [
         { id: 1, title: 'Home', to: '/' },
         { id: 2, title: 'Functional Component', to: '/benchmarks/functional' },
+        { id: 3, title: 'Child Splitting', to: '/benchmarks/child-splitting' },
       ],
     }
   }
