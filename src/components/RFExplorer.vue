@@ -2,7 +2,7 @@
 <template>
   <Window v-on="$listeners">
     <template slot="title">
-      Render Function
+      <span class="text-caption font-weight-bold">Render Function</span>
 
       <select v-model="optimize">
         <option value="true">(optimized)</option>

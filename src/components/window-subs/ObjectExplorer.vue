@@ -92,8 +92,8 @@ const ObjectExplorer = {
 .expand {
   position: absolute;
   display: inline-block;
-  font-size: 1.25rem;
-  top: -0.2rem;
+  font-size: 0.85rem;
+  top: 0.3rem;
   margin-left: -1.724rem;
   width: 1.724rem;
   background: transparent;
@@ -103,6 +103,7 @@ const ObjectExplorer = {
 }
 .type {
   color: #cfcfcf;
+  font-size: 0.6rem;
 }
 .expand:focus {
   outline: none;
@@ -111,10 +112,12 @@ const ObjectExplorer = {
   display: inline-block;
   color: dimgray;
   margin-right: 0.25rem;
+  font-size: 0.6rem;
 }
 .array > .contents > .entry > .key {
   color: cadetblue;
 }
+
 .key::after {
   content: ":";
 }
@@ -123,6 +126,7 @@ const ObjectExplorer = {
 }
 .primitive {
   font-family: inherit;
+  font-size: 0.6rem;
 }
 .string {
   color: forestgreen;

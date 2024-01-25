@@ -50,8 +50,8 @@ export default {
 }
 .title {
   text-align: center;
-  padding-right: 3rem;
-  font-size: 0.75rem;
+  padding-right: 2rem;
+  font-size: 0.5rem;
   color: #333;
   flex: 1;
   white-space: nowrap;
@@ -65,9 +65,9 @@ export default {
   margin-right: .75rem;
 }
 .actions > .close, .actions > .maximize, .actions > .minimize {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -85,6 +85,7 @@ export default {
   flex: 1;
   min-height: 28rem;
   max-height: 28rem;
+  font-size: 0.5rem;
 }
 select {
   background: transparent;
